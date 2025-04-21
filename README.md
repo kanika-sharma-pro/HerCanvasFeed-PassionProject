@@ -1,6 +1,7 @@
 **Her Canvas Feed**
 
 
+
 Her Canvas Read is a web platform designed by women, for women—a curated digital space that brings together empowering articles, practical advice, and community discussion in a beautiful Flipboard-style layout. Whether you’re a new mom, an ambitious freelancer, or just looking for authentic content that speaks to you, Her Canvas Read offers a personalized, engaging experience centered entirely on women’s lives.
 
 
