@@ -1,13 +1,13 @@
 package rocks.zipcode.accessingdatamysql;
 import jakarta.persistence.*;
-//import jakarta.persistence.Entity;
-//import jakarta.persistence.GeneratedValue;
-//import jakarta.persistence.GenerationType;
-//import jakarta.persistence.Id;
-//@Entity
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+@Entity
 public class User {
-    //@Id
-   // @GeneratedValue(strategy=GenerationType.AUTO);
+    @Id
+   @GeneratedValue(strategy=GenerationType.AUTO);
         private String userName;
         private String userEmail;
     private Integer userId;
@@ -23,10 +23,10 @@ public class User {
 
 
 
-        //@Column(name = "first_name")
+        @Column(name = "first_name")
 
 
-       // @Column(name = "last_name")
+       @Column(name = "last_name")
 
 
 
