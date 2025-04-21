@@ -10,22 +10,24 @@ public class User {
    // @GeneratedValue(strategy=GenerationType.AUTO);
         private String userName;
         private String userEmail;
-
-    public Integer getId() {
-        return id;
+    private Integer userId;
+    private String firstName;
+    private String lastName;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUserId(Integer id) {
+        this.userId = id;
     }
 
-    private Integer id;
 
-        @Column(name = "first_name")
-        private String firstName;
 
-        @Column(name = "last_name")
-        private String lastName;
+        //@Column(name = "first_name")
+
+
+       // @Column(name = "last_name")
+
 
 
         public String getUserName() {
@@ -45,6 +47,7 @@ public class User {
         }
 
         public String getFirstName() {
+
             return firstName;
         }
 
