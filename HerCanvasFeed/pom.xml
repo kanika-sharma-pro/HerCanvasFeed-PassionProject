@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>rocks.zipcode</groupId>
-	<artifactId>piro</artifactId>
+	<artifactId>HerCanvasFeed</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>piro</name>
 	<description>PiroDemo project for Spring Boot</description>

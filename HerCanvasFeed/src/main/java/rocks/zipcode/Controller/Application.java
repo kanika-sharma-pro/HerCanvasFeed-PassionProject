@@ -1,13 +1,13 @@
-package rocks.zipcode.piro;
+package rocks.zipcode.Controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PiroApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PiroApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }
