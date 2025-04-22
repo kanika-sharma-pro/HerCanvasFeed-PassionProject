@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 public class User {
 
     @Id
+    @ManyToMany
+    @JoinTable
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer userId;
 
