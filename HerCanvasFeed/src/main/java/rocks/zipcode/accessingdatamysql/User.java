@@ -2,15 +2,25 @@ package rocks.zipcode.accessingdatamysql;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 public class User {
 
     @Id
-    @ManyToMany
-    @JoinTable
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer userId;
 
+
+
+    @ManyToMany //(mappedBy = "likedFeeds")
+    @JoinTable (
+            name = "feed_like",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "feed_id")
+    )
+    Set<Feed> savedFeed = new HashSet<>();
     @Column(name = "user_Name")
     private String userName;
 
@@ -22,6 +32,17 @@ public class User {
 
     @Column(name = "last_Name")
     private String lastName;
+
+    public User(Integer userId, String userName, String userEmail, String firstName, String lastName) {
+        this.userId = userId;
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    public User() {
+
+    }
 
     // Getters and Setters
     public Integer getUserId() {
