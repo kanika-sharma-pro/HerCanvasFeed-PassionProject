@@ -11,8 +11,8 @@
 	<groupId>rocks.zipcode</groupId>
 	<artifactId>HerCanvasFeed</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>piro</name>
-	<description>PiroDemo project for Spring Boot</description>
+	<name>Her Canvas Feed</name>
+	<description>Her Canvas Feed project for Spring Boot</description>
 	<url/>
 	<licenses>
 		<license/>
