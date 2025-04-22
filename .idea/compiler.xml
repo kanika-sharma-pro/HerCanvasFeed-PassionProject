@@ -7,12 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Her Canvas Feed" />
+        <module name="HerCanvasFeed" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="piro" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Her Canvas Feed" options="-parameters" />
+      <module name="HerCanvasFeed" options="-parameters" />
     </option>
   </component>
 </project>

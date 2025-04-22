@@ -9,16 +9,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer userId;
 
-    @Column(name = "user_name")
+    @Column(name = "user_Name")
     private String userName;
 
-    @Column(name = "user_email")
+    @Column(name = "user_Email")
     private String userEmail;
 
-    @Column(name = "first_name")
+    @Column(name = "first_Name")
     private String firstName;
 
-    @Column(name = "last_name")
+    @Column(name = "last_Name")
     private String lastName;
 
     // Getters and Setters
