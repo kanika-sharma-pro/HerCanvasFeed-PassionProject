@@ -10,32 +10,29 @@ import rocks.zipcode.accessingdatamysql.UserRepository;
 @RestController
 @RequestMapping( "/demo")
 public class MainController {
-    @Autowired
-    private UserRepository userRepository;
-
+    //@Autowired
+    //    private UserRepository userRepository;
     //public MainController(UserRepository userRepository) {
      //   this.userRepository = userRepository;
 
 
-    @PostMapping(path = "/savedFeed")
-    public @ResponseBody String addNewUser (@RequestParam String name , @RequestParam String email,
-       @RequestParam Integer userId ) {
-        User n = new User();
-n.setUserName(name);
-n.setUserEmail(email);
-n.setUserId(userId);
-//n.setFirstName(firstName);
-//n.setLastName(lastName);
-
-userRepository.save(n);
-return "Saved";
-    }
-    @GetMapping(path = "/all")
-    public @ResponseBody Iterable<User> getAllUsers() {
-        return userRepository.findAll();
-
-
+   // @PostMapping(path = "/savedFeed")
+    //    public @ResponseBody String addNewUser (@RequestParam String name , @RequestParam String email,
+    //       @RequestParam Integer userId ) {
+    //        User n = new User();
+    //n.setUserName(name);
+    //n.setUserEmail(email);
+    //n.setUserId(userId);
+    ////n.setFirstName(firstName);
+    ////n.setLastName(lastName);
+    //
+    //userRepository.save(n);
+    //return "Saved";
+    //    }
+    //    @GetMapping(path = "/all")
+    //    public @ResponseBody Iterable<User> getAllUsers() {
+    //        return userRepository.findAll();
 
     }
 
-}
+
