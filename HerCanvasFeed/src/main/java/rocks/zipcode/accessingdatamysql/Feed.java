@@ -7,7 +7,6 @@ import java.util.Set;
 @Entity
 public class Feed {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer feedId;
@@ -15,25 +14,10 @@ private String feedName;
 private String feedLink;
 private String title;
 
+@ManyToMany(mappedBy = "feeds")
+private Set <User> users = new HashSet<>();
 
-    @ManyToMany(mappedBy = "likedfeeds")
-    //@JoinTable (
-    //            name = "user_liked_feeds",
-    //            joinColumns = @JoinColumn(name = "user_id"),
-    //            inverseJoinColumns = @JoinColumn (name = "feed_id")
-    //    )
-    private Set<User> likedByUser = new HashSet<>();
-
-    @ManyToMany(mappedBy = "savedFeeds")
-    //@JoinTable (
-    //            name = "user_saved_feeds",
-    //            joinColumns = @JoinColumn(name = "user_id"),
-    //            inverseJoinColumns = @JoinColumn (name = "feed_id")
-    //    )
-    private Set<User> savedByUser = new HashSet<>();
-
-
-    public Feed(Integer feedId, String feedName, String feedLink, String title) {
+public Feed(Integer feedId, String feedName, String feedLink, String title) {
         this.feedId = feedId;
         this.feedName = feedName;
         this.feedLink = feedLink;
@@ -77,6 +61,20 @@ private String title;
 //
 //    @Column (name = "feed_link")
 //private String feedLink;
-
+//@ManyToMany(mappedBy = "likedfeeds")
+//    @JoinTable (
+//             name = "user_liked_feeds",
+//               joinColumns = @JoinColumn(name = "user_id"),
+//               inverseJoinColumns = @JoinColumn (name = "feed_id")
+//       )
+//    private Set<User> likedByUser = new HashSet<>();
+//
+//    @ManyToMany(mappedBy = "savedFeeds")
+//    //@JoinTable (
+//    //            name = "user_saved_feeds",
+//    //            joinColumns = @JoinColumn(name = "user_id"),
+//    //            inverseJoinColumns = @JoinColumn (name = "feed_id")
+//    //    )
+//    private Set<User> savedByUser = new HashSet<>();
 
 

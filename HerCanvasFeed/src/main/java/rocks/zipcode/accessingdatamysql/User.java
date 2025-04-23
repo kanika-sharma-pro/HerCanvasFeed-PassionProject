@@ -13,33 +13,27 @@ public class User {
     private Integer userId;
     private String userName;
     private String userEmail;
+    private String password;
 
-    @ManyToMany //(mappedBy = "feeds")
-    @JoinTable (
-            name = "user_liked_feeds",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn (name = "feed_id")
-    )
-    private Set<Feed> likedFeeds = new HashSet<>();
+@ManyToMany
+@JoinTable ( name = "user_feed", joinColumns = @JoinColumn (name = "user_id"),
+    inverseJoinColumns = @JoinColumn(name = "feed_id")
+)
+    private Set <Feed> feeds = new HashSet<>();
 
-    @ManyToMany //(mappedBy = "feeds")
-    @JoinTable (
-            name = "user_saved_feeds",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn (name = "feed_id")
-    )
-    private Set<Feed> savedFeeds = new HashSet<>();
-
-    public User(Integer userId, String userName, String userEmail, String firstName, String lastName) {
+public User(Integer userId, String userName, String userEmail, String password) {
         this.userId = userId;
         this.userName = userName;
         this.userEmail = userEmail;
-
+this.password = password;
     }
+
+
+
+
     public User() {
 
     }
-
     // Getters and Setters
     public Integer getUserId() {
         return userId;
@@ -64,7 +58,13 @@ public class User {
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
     }
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     }
 
@@ -98,3 +98,20 @@ public class User {
 //        this.lastName = lastName;
 //this.firstName = firstName;
 //        this.lastName = lastName;
+
+
+//@ManyToMany(mappedBy = "likedByUser")
+//    @JoinTable (
+//            name = "user_liked_feeds",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn (name = "feed_id")
+//    )
+//    private Set<Feed> likedFeeds = new HashSet<>();
+//
+//    @ManyToMany(mappedBy = "savedByUser")
+//    @JoinTable (
+//            name = "user_saved_feeds",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn (name = "feed_id")
+//    )
+//    private Set<Feed> savedFeeds = new HashSet<>();
