@@ -21,6 +21,9 @@ public class User {
 )
     private Set <Feed> feeds = new HashSet<>();
 
+public User(String userName) { // constructor without id to create new users
+    this.userName = userName;
+}
 public User(Integer userId, String userName, String userEmail, String password) {
         this.userId = userId;
         this.userName = userName;
