@@ -24,8 +24,8 @@ public class MainController {
 n.setUserName(name);
 n.setUserEmail(email);
 n.setUserId(userId);
-n.setFirstName(firstName);
-n.setLastName(lastName);
+//n.setFirstName(firstName);
+//n.setLastName(lastName);
 
 userRepository.save(n);
 return "Saved";

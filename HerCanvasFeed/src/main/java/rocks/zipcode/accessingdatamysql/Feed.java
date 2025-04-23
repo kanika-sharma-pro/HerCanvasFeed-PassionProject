@@ -9,29 +9,35 @@ public class Feed {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer feedId;
-
-    @ManyToMany
-    @JoinTable (
-            name = "user_like",
-            joinColumns = @JoinColumn(name = "feed_id"),
-            inverseJoinColumns = @JoinColumn (name = "user_feed")
-    )
-
-    Set<User> user = new HashSet<>();
-
-    @Column(name = "feed_Name")
-    private String feedName;
-
-    @Column (name = "feed_link")
+private String feedName;
 private String feedLink;
+private String title;
 
 
-    public Feed(Integer feedId, String feedName, String feedLink) {
+    @ManyToMany(mappedBy = "likedfeeds")
+    //@JoinTable (
+    //            name = "user_liked_feeds",
+    //            joinColumns = @JoinColumn(name = "user_id"),
+    //            inverseJoinColumns = @JoinColumn (name = "feed_id")
+    //    )
+    private Set<User> likedByUser = new HashSet<>();
+
+    @ManyToMany(mappedBy = "savedFeeds")
+    //@JoinTable (
+    //            name = "user_saved_feeds",
+    //            joinColumns = @JoinColumn(name = "user_id"),
+    //            inverseJoinColumns = @JoinColumn (name = "feed_id")
+    //    )
+    private Set<User> savedByUser = new HashSet<>();
+
+
+    public Feed(Integer feedId, String feedName, String feedLink, String title) {
         this.feedId = feedId;
         this.feedName = feedName;
         this.feedLink = feedLink;
+        this.title = title;
     }
 
     // Getters and Setters
@@ -58,9 +64,19 @@ private String feedLink;
         this.feedId = id;
     }
 
-
+    public String getTitle() {
+        return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    }
+// @Column(name = "feed_Name")
+//    private String feedName;
+//
+//    @Column (name = "feed_link")
+//private String feedLink;
 
 
 
