@@ -14,7 +14,7 @@ private String feedName;
 private String feedLink;
 private String title;
 
-@ManyToMany(mappedBy = "feeds")
+@ManyToMany(mappedBy = "feeds", fetch = FetchType.LAZY)
 private Set <User> users = new HashSet<>();
 
 public Feed(Integer feedId, String feedName, String feedLink, String title) {

@@ -15,7 +15,7 @@ public class User {
     private String userEmail;
     private String password;
 
-@ManyToMany
+@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 @JoinTable ( name = "user_feed", joinColumns = @JoinColumn (name = "user_id"),
     inverseJoinColumns = @JoinColumn(name = "feed_id")
 )
@@ -68,6 +68,8 @@ this.password = password;
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 
     }
 
