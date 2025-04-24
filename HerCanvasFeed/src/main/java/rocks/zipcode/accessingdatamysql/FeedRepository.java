@@ -1,7 +1,7 @@
 package rocks.zipcode.accessingdatamysql;
 
-import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface FeedRepository extends JpaRepositoryImplementation<Feed, Integer> {
+public interface FeedRepository extends JpaRepository<Feed, Integer> {
 }

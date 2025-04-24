@@ -2,6 +2,7 @@ package rocks.zipcode.accessingdatamysql;
 
 import jakarta.persistence.*;
 
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -37,7 +38,20 @@ this.password = password;
     public User() {
 
     }
+
+    //public static String getFeeds() {
+       // String Feeds;
+       // return Feeds;
+   // }
+
     // Getters and Setters
+    public Set<Feed> getFeeds(){
+    return feeds;
+    }
+
+
+
+
     public Integer getUserId() {
         return userId;
     }
@@ -72,6 +86,24 @@ this.password = password;
 
 
     }
+
+    //public Set<Feed> getFeeds() {
+//    return feeds;
+//}
+//
+//public void setFeeds(Set<Feed> feeds) {
+//    this.feeds = feeds;
+//}
+//
+//public void addFeed(Feed feed) {
+//    this.feeds.add(feed);
+//    feed.getUsers().add(this);
+//}
+//
+//public void removeFeed(Feed feed) {
+//    this.feeds.remove(feed);
+//    feed.getUsers().remove(this);
+//}
 
 // @Column(name = "user_Name")
 //    private String userName;

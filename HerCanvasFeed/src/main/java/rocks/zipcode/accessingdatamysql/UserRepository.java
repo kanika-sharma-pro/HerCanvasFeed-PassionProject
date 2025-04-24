@@ -1,8 +1,7 @@
 package rocks.zipcode.accessingdatamysql;
-import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface UserRepository extends JpaRepositoryImplementation<User, Integer> {
+public interface UserRepository extends JpaRepository<User, Integer> {
 
 }
