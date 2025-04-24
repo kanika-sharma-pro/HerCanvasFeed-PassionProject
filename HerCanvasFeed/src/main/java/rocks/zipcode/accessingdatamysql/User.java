@@ -49,8 +49,14 @@ this.password = password;
     return feeds;
     }
 
+    public void setFeeds(Set<Feed> feeds) {
+        this.feeds = feeds;
+    }
 
-
+    public void addFeed (Feed feed){
+    this.feeds.add(feed);
+    feed.getUsers().add(feed);
+    }
 
     public Integer getUserId() {
         return userId;
@@ -87,13 +93,7 @@ this.password = password;
 
     }
 
-    //public Set<Feed> getFeeds() {
-//    return feeds;
-//}
-//
-//public void setFeeds(Set<Feed> feeds) {
-//    this.feeds = feeds;
-//}
+
 //
 //public void addFeed(Feed feed) {
 //    this.feeds.add(feed);

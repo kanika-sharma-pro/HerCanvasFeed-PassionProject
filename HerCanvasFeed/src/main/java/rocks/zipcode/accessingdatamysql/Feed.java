@@ -2,6 +2,7 @@ package rocks.zipcode.accessingdatamysql;
 
 import jakarta.persistence.*;
 
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 @Entity
@@ -14,7 +15,8 @@ private String feedName;
 private String feedLink;
 private String title;
 
-@ManyToMany(mappedBy = "feeds", fetch = FetchType.LAZY)
+
+    @ManyToMany(mappedBy = "feeds", fetch = FetchType.LAZY)
 private Set <User> users = new HashSet<>();
 
 public Feed(Integer feedId, String feedName, String feedLink, String title) {
@@ -23,7 +25,9 @@ public Feed(Integer feedId, String feedName, String feedLink, String title) {
         this.feedLink = feedLink;
         this.title = title;
     }
-
+    public Feed(Set<User> users) {
+        this.users = users;
+    }
     // Getters and Setters
     public String getFeedName() {
         return feedName;
@@ -55,7 +59,19 @@ public Feed(Integer feedId, String feedName, String feedLink, String title) {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public String getUsers() {
+        String Users = "";
+        return Users;
     }
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+}
+
+
+
+//}
 // @Column(name = "feed_Name")
 //    private String feedName;
 //

@@ -18,15 +18,15 @@ public class UserController {
 
     @Autowired
        private UserRepository userRepository;
-    //public UserController(UserRepository userRepository) {
-    //        this.userRepository = userRepository;
-    //    }
+    public UserController(UserRepository userRepository) {
+            this.userRepository = userRepository;
+      }
 @Autowired
     private FeedRepository feedRepository;
 
-    //public UserController(FeedRepository feedRepository) {
-    //        this.feedRepository = feedRepository;
-    //    }
+    public UserController(FeedRepository feedRepository) {
+           this.feedRepository = feedRepository;
+    }
     @GetMapping
     public List<User> getAllUser() {
         return userRepository.findAll();
@@ -41,10 +41,10 @@ public class UserController {
 
 
 
-// @PostMapping("/userId/feed/feedId")
-//    public ResponseEntity<String> addFeedToUser(@PathVariable Integer userId, @PathVariable Integer feedId) {
-//       User.getFeeds().add(Feed);
-//       userRepository.save(User);
+ //@PostMapping("/userId/feed/feedId")
+  // public ResponseEntity<String> addFeedToUser(@PathVariable Integer userId, @PathVariable Integer feedId) {
+    //  User.getFeeds().add(Feed);
+//      userRepository.save(User);
 //
 //       return ResponseEntity.ok("Feed added to user");
 //    }
