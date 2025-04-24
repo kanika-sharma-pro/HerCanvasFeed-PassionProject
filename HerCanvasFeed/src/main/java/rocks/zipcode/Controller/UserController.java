@@ -37,11 +37,7 @@ public class UserController {
 
 }
 
-//import org.springframework.web.bind.annotation.*;
-//import rocks.zipcode.accessingdatamysql.User;
-//import rocks.zipcode.accessingdatamysql.UserRepository;
-//
-//import java.util.List;
+
 
 
 
