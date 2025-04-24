@@ -2,7 +2,6 @@ package rocks.zipcode.accessingdatamysql;
 
 import jakarta.persistence.*;
 
-import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 @Entity
@@ -25,9 +24,9 @@ public Feed(Integer feedId, String feedName, String feedLink, String title) {
         this.feedLink = feedLink;
         this.title = title;
     }
-    public Feed(Set<User> users) {
-        this.users = users;
-    }
+  //  public Feed(Set<User> users) {
+  //        this.users = users;
+  //    }
     // Getters and Setters
     public String getFeedName() {
         return feedName;
@@ -60,9 +59,9 @@ public Feed(Integer feedId, String feedName, String feedLink, String title) {
         this.title = title;
     }
 
-    public String getUsers() {
-        String Users = "";
-        return Users;
+    public Set<User> getUsers() {
+
+        return users;
     }
     public void setUsers(Set<User> users) {
         this.users = users;

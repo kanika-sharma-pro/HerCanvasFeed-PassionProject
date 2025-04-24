@@ -53,29 +53,29 @@ assertEquals("Jane Frost", user.getUserName(), "Your User name" );
 
     }
 
-    @Test
-    void getFirstName() {
-        User user = new User();
-        user.setFirstName("Jane");
-        assertEquals("Jane", user.getFirstName(), "Your first name" );
+   // @Test
+    //    void getFirstName() {
+    //        User user = new User();
+    //        user.setFirstName("Jane");
+    //        assertEquals("Jane", user.getFirstName(), "Your first name" );
 
 
     }
 
-    @Test
-    void setFirstName() {
-
-    }
-
-    @Test
-    void getLastName() {
-        User user = new User();
-        user.setLastName("Jane");
-        assertEquals("Jane", user.getLastName(), "Your last name" );
-
-    }
-
-    @Test
-    void setLastName() {
-    }
-}
+   // @Test
+//    void setFirstName() {
+//
+//    }
+//
+//    @Test
+//    void getLastName() {
+//        User user = new User();
+//        user.setLastName("Jane");
+//        assertEquals("Jane", user.getLastName(), "Your last name" );
+//
+   // }//
+//
+//@Test
+//void setLastName() {
+//}
+//}

@@ -2,12 +2,14 @@ package rocks.zipcode.accessingdatamysql;
 
 import jakarta.persistence.*;
 
-import java.util.Calendar;
+
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "`user`")
 public class User {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,22 +24,19 @@ public class User {
 )
     private Set <Feed> feeds = new HashSet<>();
 
-public User(String userName) { // constructor without id to create new users
-    this.userName = userName;
-}
-public User(Integer userId, String userName, String userEmail, String password) {
-        this.userId = userId;
-        this.userName = userName;
-        this.userEmail = userEmail;
-this.password = password;
-    }
-
-
-
-
     public User() {
 
     }
+    public User(String userName) {
+        this.userName = userName;
+    }
+public User (Integer userId, String userName, String userEmail, String password){
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userId = userId;
+        this.password = password;
+}
+
 
     //public static String getFeeds() {
        // String Feeds;
@@ -55,7 +54,7 @@ this.password = password;
 
     public void addFeed (Feed feed){
     this.feeds.add(feed);
-    feed.getUsers().add(feed);
+    //feed.getUsers().add(feed);
     }
 
     public Integer getUserId() {
@@ -152,3 +151,23 @@ this.password = password;
 //            inverseJoinColumns = @JoinColumn (name = "feed_id")
 //    )
 //    private Set<Feed> savedFeeds = new HashSet<>();
+//public User(UserRepository userRepository, String userName) {
+//    this.userRepository = userRepository; // constructor without id to create new users
+//    this.userName = userName;
+//}
+//public User(UserRepository userRepository, Integer userId, String userName, String userEmail, String password) {
+//    this.userRepository = userRepository;
+//    this.userId = userId;
+//        this.userName = userName;
+//        this.userEmail = userEmail;
+//this.password = password;
+//    }
+//public void UserController(UserRepository userRepository) {
+//    this.userRepository = userRepository;
+//}
+//
+//
+//public User(UserRepository userRepository) {
+//
+//    this.userRepository = userRepository;
+//}

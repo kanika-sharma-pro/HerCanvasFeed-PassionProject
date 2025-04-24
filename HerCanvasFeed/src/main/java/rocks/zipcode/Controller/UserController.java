@@ -1,7 +1,7 @@
 package rocks.zipcode.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
 import rocks.zipcode.accessingdatamysql.Feed;
 import rocks.zipcode.accessingdatamysql.FeedRepository;
@@ -14,10 +14,9 @@ import java.util.Set;
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
-
+    private UserRepository userRepository;
 
     @Autowired
-       private UserRepository userRepository;
     public UserController(UserRepository userRepository) {
             this.userRepository = userRepository;
       }
@@ -37,6 +36,13 @@ public class UserController {
     }
 
 }
+
+//import org.springframework.web.bind.annotation.*;
+//import rocks.zipcode.accessingdatamysql.User;
+//import rocks.zipcode.accessingdatamysql.UserRepository;
+//
+//import java.util.List;
+
 
 
 
