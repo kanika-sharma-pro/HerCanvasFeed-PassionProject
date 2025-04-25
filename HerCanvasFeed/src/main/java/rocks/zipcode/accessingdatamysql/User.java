@@ -14,15 +14,25 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
-    private String userName;
-    private String userEmail;
-    private String password;
+   // private String userName;
+    //private String userEmail;
+    //private String password;
 
 @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 @JoinTable ( name = "user_feed", joinColumns = @JoinColumn (name = "user_id"),
     inverseJoinColumns = @JoinColumn(name = "feed_id")
 )
     private Set <Feed> feeds = new HashSet<>();
+    @Column(name = "user_Name")
+    private String userName;
+
+  @Column(name = "user_Email")
+   private String userEmail;
+
+  @Column(name = "user_Password")
+    private String password;
+
+
 
    // @ManyToMany(mappedBy = "likedByUser")
     //   @JoinTable (
