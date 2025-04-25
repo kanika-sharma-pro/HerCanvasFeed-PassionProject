@@ -24,6 +24,17 @@ public class User {
 )
     private Set <Feed> feeds = new HashSet<>();
 
+   // @ManyToMany(mappedBy = "likedByUser")
+    //   @JoinTable (
+    //           name = "user_liked_feeds",
+    //           joinColumns = @JoinColumn(name = "user_id"),
+    //          inverseJoinColumns = @JoinColumn (name = "feed_id")
+    //  )
+    //   private Set<Feed> likedFeeds = new HashSet<>();
+
+
+
+
     public User() {
 
     }
@@ -38,10 +49,7 @@ public User (Integer userId, String userName, String userEmail, String password)
 }
 
 
-    //public static String getFeeds() {
-       // String Feeds;
-       // return Feeds;
-   // }
+
 
     // Getters and Setters
     public Set<Feed> getFeeds(){
@@ -94,10 +102,7 @@ public User (Integer userId, String userName, String userEmail, String password)
 
 
 //
-//public void addFeed(Feed feed) {
-//    this.feeds.add(feed);
-//    feed.getUsers().add(this);
-//}
+
 //
 //public void removeFeed(Feed feed) {
 //    this.feeds.remove(feed);
@@ -136,13 +141,6 @@ public User (Integer userId, String userName, String userEmail, String password)
 //        this.lastName = lastName;
 
 
-//@ManyToMany(mappedBy = "likedByUser")
-//    @JoinTable (
-//            name = "user_liked_feeds",
-//            joinColumns = @JoinColumn(name = "user_id"),
-//            inverseJoinColumns = @JoinColumn (name = "feed_id")
-//    )
-//    private Set<Feed> likedFeeds = new HashSet<>();
 //
 //    @ManyToMany(mappedBy = "savedByUser")
 //    @JoinTable (
