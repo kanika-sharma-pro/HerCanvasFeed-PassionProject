@@ -34,13 +34,13 @@ public class User {
 
 
 
-   // @ManyToMany(mappedBy = "likedByUser")
-    //   @JoinTable (
-    //           name = "user_liked_feeds",
-    //           joinColumns = @JoinColumn(name = "user_id"),
-    //          inverseJoinColumns = @JoinColumn (name = "feed_id")
-    //  )
-    //   private Set<Feed> likedFeeds = new HashSet<>();
+  @ManyToMany
+       @JoinTable (
+             name = "user_liked_feeds",
+             joinColumns = @JoinColumn(name = "user_id"),
+             inverseJoinColumns = @JoinColumn (name = "feed_id")
+      )
+  private Set<Feed> likedFeeds = new HashSet<>();
 
 
 
@@ -179,3 +179,5 @@ public User (Integer userId, String userName, String userEmail, String password)
 //
 //    this.userRepository = userRepository;
 //}
+//package rocks.zipcode.Controller;
+//

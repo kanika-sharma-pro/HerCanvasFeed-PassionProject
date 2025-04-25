@@ -4,39 +4,30 @@ import jakarta.persistence.*;
 
 import java.util.HashSet;
 import java.util.Set;
+
 @Entity
 public class Feed {
-private String feedName;
-private String feedLink;
-private String title;
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer feedId;
 
-    @ManyToMany(mappedBy = "feeds", fetch = FetchType.LAZY)
+    private String feedName;
+private String feedLink;
+private String title;
+
+@ManyToMany(mappedBy = "feeds", fetch = FetchType.LAZY)
     private Set<User> users = new HashSet<>();
 
+public Feed (){
 
-//   @JoinTable (
-//            name = "user_liked_feeds",
-//              joinColumns = @JoinColumn(name = "user_id"),
-//              inverseJoinColumns = @JoinColumn (name = "feed_id")
-//       )
-
-
-    public Feed(Integer feedId, String feedName, String feedLink, String title) {
+}
+public Feed(Integer feedId, String feedName, String feedLink, String title) {
         this.feedId = feedId;
         this.feedName = feedName;
         this.feedLink = feedLink;
         this.title = title;
     }
 
-    //  public Feed(Set<User> users) {
-    //        this.users = users;
-    //    }
-    // Getters and Setters
     public String getFeedName() {
         return feedName;
     }
@@ -53,9 +44,9 @@ private String title;
         this.feedLink = feedLink;
     }
 
-    public Integer getFeedId() {
-        return feedId;
-    }
+   public Integer getFeedId() {
+           return feedId;
+}
 
     public void setFeedId(Integer id) {
         this.feedId = id;
@@ -83,6 +74,40 @@ private String title;
 
 }
 
+//@Entity
+//public class Feed {
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Integer feedId;
+//
+//    private String feedName;
+//    private String feedLink;
+//    private String title;
+//
+//
+//
+//    // No-args constructor is required by JPA
+//    public Feed() {
+//    }
+//
+//    public Feed(Integer feedId, String feedName, String feedLink, String title) {
+//        this.feedId = feedId;
+//        this.feedName = feedName;
+//        this.feedLink = feedLink;
+//        this.title = title;
+//    }
+//
+//    // Change to non-static method
+//    public Integer getFeedId() {
+//        return feedId;
+//    }
+//
+//    public void setFeedId(Integer id) {
+//        this.feedId = id;
+//    }
+//  public Feed(Set<User> users) {
+//        this.users = users;
+//    }
 
 //@Column(name = "feed_Name")
 //    private String feedName;
@@ -101,5 +126,9 @@ private String title;
 //    //            inverseJoinColumns = @JoinColumn (name = "feed_id")
 //    //    )
 //    private Set<User> savedByUser = new HashSet<>();
-
+//@JoinTable (
+//    //          name = "user_liked_feeds",
+//    //             joinColumns = @JoinColumn(name = "user_id"),
+//    //             inverseJoinColumns = @JoinColumn (name = "feed_id")
+//    //      )
 

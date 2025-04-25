@@ -7,33 +7,45 @@ import rocks.zipcode.accessingdatamysql.Feed;
 import rocks.zipcode.accessingdatamysql.FeedRepository;
 import rocks.zipcode.accessingdatamysql.User;
 import rocks.zipcode.accessingdatamysql.UserRepository;
+import rocks.zipcode.service.UserService;
 
 import java.util.List;
 import java.util.Set;
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
     private UserRepository userRepository;
+private FeedRepository feedRepository;
+private UserService userService;
 
     @Autowired
-    public UserController(UserRepository userRepository) {
-            this.userRepository = userRepository;
-      }
-@Autowired
-    private FeedRepository feedRepository;
-
-    public UserController(FeedRepository feedRepository) {
-           this.feedRepository = feedRepository;
+  public UserController (UserRepository userRepository, FeedRepository feedRepository, UserService userService) {
+        this.userRepository = userRepository;
+        this.feedRepository = feedRepository;
+        this.userService = userService;
     }
-    @GetMapping
+
+    @GetMapping("/tables")
+    public List<String> getTables() {
+        return userService.showTables();
+    }
+
+
+    @GetMapping("/User")
     public List<User> getAllUser() {
+
         return userRepository.findAll();
     }
     @PostMapping
     public User createUser (@RequestBody User user) {
         return userRepository.save(user);
     }
+
+
+
 
 }
 
@@ -61,3 +73,31 @@ public class UserController {
 //@PostMapping
 //    public User saveUserWithFeed (@ResponseBody User user){
 //return userRepository.save(user);
+
+
+//    private final UserRepository userRepository;
+//    private final FeedRepository feedRepository;
+//   private final UserService userService;
+
+//   @Autowired
+//   public UserController(UserRepository userRepository, FeedRepository feedRepository, UserService userService) {
+//        this.userRepository = userRepository;
+//        this.feedRepository = feedRepository;
+//        this.userService = userService;
+//    }
+
+//    @GetMapping("/tables")
+//    public List<String> getTables() {
+//        return userService.showTables();
+//    }
+
+//    @GetMapping
+//   public List<User> getAllUser() {
+//       return userRepository.findAll();
+//    }
+
+//    @PostMapping
+//    public User createUser(@RequestBody User user) {
+//        return userRepository.save(user);
+//    }
+//}
