@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Controller
-@RequestMapping("/User")
+@RequestMapping("/users")
 public class UserController {
     private UserRepository userRepository;
 private FeedRepository feedRepository;

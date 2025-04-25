@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Database Tables</title>
+  <link rel="stylesheet" href="koley.css?v=1" />
+</head>
+<body>
+<div class="container">
+  <h1>Database Tables</h1>
+  <ul th:if="${tables != null and !tables.isEmpty()}">
+    <li th:each="table : ${tables}" th:text="${table}"></li>
+  </ul>
+  <p th:unless="${tables != null and !tables.isEmpty()}">No tables found.</p>
+</div>
+</body>
+</html>
