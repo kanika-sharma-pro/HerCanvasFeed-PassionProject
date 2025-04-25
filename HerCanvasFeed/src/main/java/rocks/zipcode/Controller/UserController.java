@@ -2,6 +2,7 @@ package rocks.zipcode.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import rocks.zipcode.accessingdatamysql.Feed;
 import rocks.zipcode.accessingdatamysql.FeedRepository;
@@ -14,8 +15,8 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-@RestController
-@RequestMapping("/api/user")
+@Controller
+@RequestMapping("/User")
 public class UserController {
     private UserRepository userRepository;
 private FeedRepository feedRepository;
@@ -34,7 +35,7 @@ private UserService userService;
     }
 
 
-    @GetMapping("/User")
+    @GetMapping("/AllUser")
     public List<User> getAllUser() {
 
         return userRepository.findAll();

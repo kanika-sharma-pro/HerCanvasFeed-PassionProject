@@ -1,6 +1,7 @@
 package rocks.zipcode.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +12,7 @@ import rocks.zipcode.accessingdatamysql.FeedRepository;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequestMapping("/api/Feed")
 public class FeedController {
     private FeedRepository feedRepository;
