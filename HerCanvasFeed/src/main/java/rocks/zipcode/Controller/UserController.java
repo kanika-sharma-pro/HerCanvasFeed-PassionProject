@@ -2,6 +2,8 @@ package rocks.zipcode.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import rocks.zipcode.accessingdatamysql.Feed;
@@ -12,53 +14,51 @@ import rocks.zipcode.service.UserService;
 
 import java.util.List;
 import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Controller
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class UserController {
-    private UserRepository userRepository;
-private FeedRepository feedRepository;
-private UserService userService;
-
     @Autowired
-  public UserController (UserRepository userRepository, FeedRepository feedRepository, UserService userService) {
-        this.userRepository = userRepository;
-        this.feedRepository = feedRepository;
-        this.userService = userService;
+    private UserRepository userRepository;
+//private FeedRepository feedRepository;
+    //private UserService userService;
+
+//    @Autowired
+//    public UserController(UserRepository userRepository, FeedRepository feedRepository, UserService userService) {
+//        this.userRepository = userRepository;
+//        this.feedRepository = feedRepository;
+//        this.userService = userService;
+//    }
+
+    // @GetMapping("/tables")
+    //    public List<String> getTables() {
+    //
+    //        return userService.showTables();
+    //    }
+
+
+    @GetMapping("/allUser")
+    public ResponseEntity<Iterable<User>> getAllUser() {
+
+        return new ResponseEntity<>(userRepository.findAll(),HttpStatus.OK);
     }
 
-    @GetMapping("/tables")
-    public List<String> getTables() {
-        return userService.showTables();
-    }
-
-
-    @GetMapping("/AllUser")
-    public List<User> getAllUser() {
-
-        return userRepository.findAll();
-    }
     @PostMapping
-    public User createUser (@RequestBody User user) {
-        return userRepository.save(user);
+    public ResponseEntity <User> createUser(@RequestBody User user) {
+        User newUser = userRepository.save(user);
+        return new ResponseEntity<>(newUser,HttpStatus.CREATED);
     }
-
-
 
 
 }
 
 
-
-
-
-
-
- //@PostMapping("/userId/feed/feedId")
-  // public ResponseEntity<String> addFeedToUser(@PathVariable Integer userId, @PathVariable Integer feedId) {
-    //  User.getFeeds().add(Feed);
+//@PostMapping("/userId/feed/feedId")
+// public ResponseEntity<String> addFeedToUser(@PathVariable Integer userId, @PathVariable Integer feedId) {
+//  User.getFeeds().add(Feed);
 //      userRepository.save(User);
 //
 //       return ResponseEntity.ok("Feed added to user");

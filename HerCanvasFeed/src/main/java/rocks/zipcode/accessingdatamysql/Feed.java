@@ -8,7 +8,7 @@ import java.util.Set;
 @Entity
 public class Feed {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer feedId;
 
     private String feedName;

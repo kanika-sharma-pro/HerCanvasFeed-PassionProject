@@ -2,20 +2,41 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>User List</title>
+    <title>Her Canvas Feed</title>
     <link rel="stylesheet" href="koley.css?v=1" />
 </head>
+<style>
+    body {background-color: #fff0f5;}
+     h1 {color: #334d2b;}
+    p {color: #334d2b;}
+</style>
 <body>
 <div class="container">
-    <h1>User List</h1>
-
+    <h3 style="font-size:20px;">Her Canvas Feed</h3>
     <div th:if="${users != null and !users.isEmpty()}">
         <table class="user-table">
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Feeds</th>
+                <th><img src="../static/images/HER%20CANVAS.png" style="width:48px;height:48px;">   <span style="display:inline-block; width: 100px;"></span></th>
+                <th>Home <span style="display:inline-block; width: 20px;"></th>
+                <th>Health <span style="display:inline-block; width: 20px;"></th>
+                <th>Career <span style="display:inline-block; width: 20px;"> </th>
+                <th>Motherhood <span style="display:inline-block; width: 20px;"></th>
+
+                <th>
+                <svg role="img" aria-labelledby="bell-icon-title" class="bell-icon ez9tmes0 css-l1ysgx evmgdi90" width="24" height="24" viewBox="0 0 24 24"><title id="bell-icon-title">Search</title><path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 2C5.80558 2 2 5.80558 2 10.5C2 15.1944 5.80558 19 10.5 19C12.3963 19 14.1476 18.379 15.5616 17.3293L19.1161 20.8839C19.6043 21.372 20.3957 21.372 20.8839 20.8839C21.372 20.3957 21.372 19.6043 20.8839 19.1161L17.3293 15.5616C18.379 14.1476 19 12.3963 19 10.5C19 5.80558 15.1944 2 10.5 2ZM4 10.5C4 6.91015 6.91015 4 10.5 4C14.0899 4 17 6.91015 17 10.5C17 14.0899 14.0899 17 10.5 17C6.91015 17 4 14.0899 4 10.5Z" fill="currentColor"></path></svg>
+                    <span style="display:inline-block; width: 20px;">
+                <title id="bell-icon-title">Search</title>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 2C5.80558 2 2 5.80558 2 10.5C2 15.1944 5.80558 19 10.5 19C12.3963 19 14.1476 18.379 15.5616 17.3293L19.1161 20.8839C19.6043 21.372 20.3957 21.372 20.8839 20.8839C21.372 20.3957 21.372 19.6043 20.8839 19.1161L17.3293 15.5616C18.379 14.1476 19 12.3963 19 10.5C19 5.80558 15.1944 2 10.5 2ZM4 10.5C4 6.91015 6.91015 4 10.5 4C14.0899 4 17 6.91015 17 10.5C17 14.0899 14.0899 17 10.5 17C6.91015 17 4 14.0899 4 10.5Z" fill="currentColor"></path>
+                </th>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true" data-di-res-id="47023296-f9116da2" data-di-rand="1745692342282"><path d="M21 7H3V5H21V7Z" fill="#080808"></path><path d="M21 13H3V11H21V13Z" fill="#080808"></path><path d="M3 19H21V17H3V19Z" fill="#080808"></path></svg>
+                <path d="M21 7H3V5H21V7Z" fill="#080808"></path>
+                <path d="M21 13H3V11H21V13Z" fill="#080808"></path>
+                <path d="M3 19H21V17H3V19Z" fill="#080808"></path>
+                <th>
+                <span style="display:inline-block; width: 5px;">
+
+                </th>
             </tr>
             </thead>
             <tbody>

@@ -7,29 +7,29 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "`user`")
+@Table(name = "`User`")
 public class User {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer userId;
    // private String userName;
     //private String userEmail;
     //private String password;
 
 @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-@JoinTable ( name = "user_feed", joinColumns = @JoinColumn (name = "user_id"),
+@JoinTable ( name = "User_feed", joinColumns = @JoinColumn (name = "User_id"),
     inverseJoinColumns = @JoinColumn(name = "feed_id")
 )
     private Set <Feed> feeds = new HashSet<>();
-    @Column(name = "user_Name")
+    @Column(name = "User_Name")
     private String userName;
 
-  @Column(name = "user_Email")
+  @Column(name = "User_Email")
    private String userEmail;
 
-  @Column(name = "user_Password")
+  @Column(name = "User_Password")
     private String password;
 
 

@@ -11,6 +11,7 @@ public class UserService {
         private JdbcTemplate jdbcTemplate;
 
         public List<String> showTables() {
+
             return jdbcTemplate.queryForList("SHOW TABLES", String.class);
         }
     }

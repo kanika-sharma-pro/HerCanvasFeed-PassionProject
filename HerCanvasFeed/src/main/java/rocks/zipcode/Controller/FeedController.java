@@ -15,13 +15,14 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/api/Feed")
 public class FeedController {
-    private FeedRepository feedRepository;
     @Autowired
+    private FeedRepository feedRepository;
+
     public FeedController(FeedRepository feedRepository) {
         this.feedRepository = feedRepository;
     }
     @GetMapping
-    public List<Feed> findAllFeeds() {
+    public Iterable<Feed> findAllFeeds() {
 
         return feedRepository.findAll();
     }
