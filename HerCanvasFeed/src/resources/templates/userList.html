@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <style>
+    <h1 style="font-size:20px;">Her Canvas Feed</h1>
     body {background-color: #fff0f5;}
      h1 {color: #334d2b;}
     p {color: #334d2b;}
@@ -29,28 +30,30 @@
             </thead>
             <tbody>
 
-            <h1 style="font-size:20px;">Her Canvas Feed</h1>
-
             <style>
                 .mySlides {display:none;}
             </style>
             <body>
 
-            <div class="w3-content" style="max-width:400px">
+            <div class="w3-content" style="max-width:200px">
                 <div class="mySlides w3-container w3-red">
                     <h1><b>Did You Know?</b></h1>
                     <h1><i>Why is Moringa good for you? </i></h1>
                 </div>
+            </div>
 
                 <div class="w3-content" style="max-width:400px">
                     <div class="mySlides w3-container w3-red">
-                        <h1><i>7 Postpartum Exercises for C-Section Recovery</i></h1>
+                        <a href="https://www.performancehealth.com/articles/7-postpartum-exercises-for-c-section-recovery#:~:text=Make%20sure%20to%20start%20with,the%20intensity%20of%20your%20workouts."><h1>7 Postpartum Exercises for C-Section Recovery</h1></a>
                     </div>
+                </div>
 
                     <div class="w3-content" style="max-width:400px">
                         <div class="mySlides w3-container w3-red">
                             <h1><i>Why is Moringa good for you? </i></h1>
                         </div>
+                    </div>
+
 
             <script>
                 var slideIndex = 0;
@@ -69,8 +72,8 @@
                 }
             </script>
 
-            </body>
-</html>
+            </tbody>
+
 
             <tr th:each="user : ${users}">
                 <td th:text="${user.name}"></td>
