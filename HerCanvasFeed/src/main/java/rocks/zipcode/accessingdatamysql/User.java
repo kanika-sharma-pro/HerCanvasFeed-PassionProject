@@ -7,43 +7,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "`User`")
+//@Table(name = "`User`")
 public class User {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer userId;
-   // private String userName;
-    //private String userEmail;
-    //private String password;
-
-@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-@JoinTable ( name = "User_feed", joinColumns = @JoinColumn (name = "User_id"),
-    inverseJoinColumns = @JoinColumn(name = "feed_id")
-)
-    private Set <Feed> feeds = new HashSet<>();
-    @Column(name = "User_Name")
+    private int userId;
     private String userName;
-
-  @Column(name = "User_Email")
-   private String userEmail;
-
-  @Column(name = "User_Password")
-    private String password;
-
-
-
-  @ManyToMany
-       @JoinTable (
-             name = "user_liked_feeds",
-             joinColumns = @JoinColumn(name = "user_id"),
-             inverseJoinColumns = @JoinColumn (name = "feed_id")
-      )
-  private Set<Feed> likedFeeds = new HashSet<>();
-
-
-
+    private String userEmail;
+    //private String password;
 
     public User() {
 
@@ -51,30 +24,11 @@ public class User {
     public User(String userName) {
         this.userName = userName;
     }
-public User (Integer userId, String userName, String userEmail, String password){
+    public User (Integer userId, String userName, String userEmail ) {
         this.userName = userName;
         this.userEmail = userEmail;
         this.userId = userId;
-        this.password = password;
-}
-
-
-
-
-    // Getters and Setters
-    public Set<Feed> getFeeds(){
-    return feeds;
     }
-
-    public void setFeeds(Set<Feed> feeds) {
-        this.feeds = feeds;
-    }
-
-    public void addFeed (Feed feed){
-    this.feeds.add(feed);
-    //feed.getUsers().add(feed);
-    }
-
     public Integer getUserId() {
         return userId;
     }
@@ -98,13 +52,64 @@ public User (Integer userId, String userName, String userEmail, String password)
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
     }
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+//@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//@JoinTable ( name = "User_feed", joinColumns = @JoinColumn (name = "User_id"),
+//    inverseJoinColumns = @JoinColumn(name = "feed_id")
+//)
+//    private Set <Feed> feeds = new HashSet<>();
+//    @Column(name = "User_Name")
+//    private String userName;
+//
+//  @Column(name = "User_Email")
+//   private String userEmail;
+//
+//  @Column(name = "User_Password")
+//    private String password;
+
+
+
+ // @ManyToMany
+    //       @JoinTable (
+    //             name = "user_liked_feeds",
+    //             joinColumns = @JoinColumn(name = "user_id"),
+    //             inverseJoinColumns = @JoinColumn (name = "feed_id")
+    //      )
+    //  private Set<Feed> likedFeeds = new HashSet<>();
+
+
+
+
+
+        //this.password = password;
+    //String password
+
+
+
+
+
+    // Getters and Setters
+    //public Set<Feed> getFeeds(){
+    //    return feeds;
+    //    }
+    //
+    //    public void setFeeds(Set<Feed> feeds) {
+    //        this.feeds = feeds;
+    //    }
+    //
+    //    public void addFeed (Feed feed){
+    //    this.feeds.add(feed);
+    //    //feed.getUsers().add(feed);
+    //    }
+
+
+    //public String getPassword() {
+    //        return password;
+    //    }
+    //
+    //    public void setPassword(String password) {
+    //        this.password = password;
+    //    }
 
 
 

@@ -19,12 +19,44 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Controller
-@RequestMapping("/api/users")
+//@RequestMapping("/api/users")
 public class UserController {
+
+    UserRepository userRepository;
     @Autowired
-    private UserRepository userRepository;
+    public  UserController(UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
+
+    @PostMapping(value = "/user")
+    ResponseEntity<User> createPerson(@RequestBody User p) {
+        return new ResponseEntity<>(userRepository.save(p), HttpStatus.CREATED);
+    }
+    @GetMapping(value = "/user/{ID}")
+    ResponseEntity<User> getPerson (@PathVariable int userId) {
+        return new ResponseEntity<>(userRepository.findOne(userId), HttpStatus.OK);
+    }
+
+    @GetMapping(value ="/user")
+    ResponseEntity<Iterable<User>> getPersonList(){
+        return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/user/{id}")
+    ResponseEntity<User> updatePerson (@PathVariable("id") @RequestBody User p){
+        return new ResponseEntity<>(userRepository.save(p), HttpStatus.ACCEPTED);
+    }
+
+    @DeleteMapping(value = "/user/{ID}")
+    void deletePerson(@PathVariable ("id") int userId) {
+    userRepository.delete(userId);
+    }
+
+}
+
+
 //private FeedRepository feedRepository;
-    //private UserService userService;
+//private UserService userService;
 
 //    @Autowired
 //    public UserController(UserRepository userRepository, FeedRepository feedRepository, UserService userService) {
@@ -33,28 +65,11 @@ public class UserController {
 //        this.userService = userService;
 //    }
 
-    // @GetMapping("/tables")
-    //    public List<String> getTables() {
-    //
-    //        return userService.showTables();
-    //    }
-
-
-    @GetMapping("/allUser")
-    public ResponseEntity<Iterable<User>> getAllUser() {
-
-        return new ResponseEntity<>(userRepository.findAll(),HttpStatus.OK);
-    }
-
-    @PostMapping
-    public ResponseEntity <User> createUser(@RequestBody User user) {
-        User newUser = userRepository.save(user);
-        return new ResponseEntity<>(newUser,HttpStatus.CREATED);
-    }
-
-
-}
-
+// @GetMapping("/tables")
+//    public List<String> getTables() {
+//
+//        return userService.showTables();
+//    }
 
 //@PostMapping("/userId/feed/feedId")
 // public ResponseEntity<String> addFeedToUser(@PathVariable Integer userId, @PathVariable Integer feedId) {

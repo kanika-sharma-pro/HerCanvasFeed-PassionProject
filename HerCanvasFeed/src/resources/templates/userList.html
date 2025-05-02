@@ -75,7 +75,7 @@
 
             </tbody>
 
-
+</div>
         <tr th:each="user : ${users}">
             <td th:text="${user.name}"></td>
             <td th:text="${user.email}"></td>
@@ -91,6 +91,9 @@
         </tbody>
     </table>
 </div>-->
+                </ul>
+            </td>
+        </tr>
 <div th:unless="${users != null and !users.isEmpty()}">
     <p>Feeds</p>
 </div>
