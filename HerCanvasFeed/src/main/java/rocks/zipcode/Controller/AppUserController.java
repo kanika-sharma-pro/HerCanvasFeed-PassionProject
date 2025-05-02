@@ -1,55 +1,56 @@
 package rocks.zipcode.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import rocks.zipcode.accessingdatamysql.Feed;
-import rocks.zipcode.accessingdatamysql.FeedRepository;
-import rocks.zipcode.accessingdatamysql.User;
-import rocks.zipcode.accessingdatamysql.UserRepository;
-import rocks.zipcode.service.UserService;
+//import rocks.zipcode.accessingdatamysql.Feed;
+//import rocks.zipcode.accessingdatamysql.FeedRepository;
+import rocks.zipcode.accessingdatamysql.AppUser;
 
-import java.util.List;
-import java.util.Set;
+import rocks.zipcode.accessingdatamysql.AppUserRepository;
+//import rocks.zipcode.accessingdatamysql.UserRepository;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Optional;
+//import rocks.zipcode.service.UserService;
+//import java.util.List;
+//import java.util.Set;
+//import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Controller
 //@RequestMapping("/api/users")
-public class UserController {
+public class AppUserController {
 
-    UserRepository userRepository;
+    AppUserRepository appUserRepository;
     @Autowired
-    public  UserController(UserRepository userRepository){
-        this.userRepository = userRepository;
+    public  AppUserController(AppUserRepository appUserRepository){
+        this.appUserRepository = appUserRepository;
     }
 
-    @PostMapping(value = "/user")
-    ResponseEntity<User> createPerson(@RequestBody User p) {
-        return new ResponseEntity<>(userRepository.save(p), HttpStatus.CREATED);
+    @PostMapping(value = "/appuser")
+    ResponseEntity<AppUser> createAppUser(@RequestBody AppUser p) {
+        return new ResponseEntity<>(appUserRepository.save(p), HttpStatus.CREATED);
     }
-    @GetMapping(value = "/user/{ID}")
-    ResponseEntity<User> getPerson (@PathVariable int userId) {
-        return new ResponseEntity<>(userRepository.findOne(userId), HttpStatus.OK);
-    }
-
-    @GetMapping(value ="/user")
-    ResponseEntity<Iterable<User>> getPersonList(){
-        return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
+    @GetMapping(value = "/appuser/{ID}")
+    ResponseEntity<Optional<AppUser>> getUser (@PathVariable int appUserId) {
+        return new ResponseEntity<>(appUserRepository.findById(appUserId), HttpStatus.OK);
     }
 
-    @PutMapping(value = "/user/{id}")
-    ResponseEntity<User> updatePerson (@PathVariable("id") @RequestBody User p){
-        return new ResponseEntity<>(userRepository.save(p), HttpStatus.ACCEPTED);
+    @GetMapping(value ="/appuser")
+    ResponseEntity<Iterable<AppUser>> getAppUserList(){
+        return new ResponseEntity<>(appUserRepository.findAll(), HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/user/{ID}")
-    void deletePerson(@PathVariable ("id") int userId) {
-    userRepository.delete(userId);
+    @PutMapping(value = "/appuser/{id}")
+    ResponseEntity<AppUser> updateUser (@PathVariable("id") @RequestBody AppUser p){
+        return new ResponseEntity<>(appUserRepository.save(p), HttpStatus.ACCEPTED);
+    }
+
+    @DeleteMapping(value = "/appuser/{ID}")
+    void deleteUser(@PathVariable ("id") int appUserId) {
+        appUserRepository.deleteById(appUserId);
     }
 
 }

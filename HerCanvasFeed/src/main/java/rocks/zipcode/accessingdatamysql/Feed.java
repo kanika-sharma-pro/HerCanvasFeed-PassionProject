@@ -2,26 +2,27 @@ package rocks.zipcode.accessingdatamysql;
 
 import jakarta.persistence.*;
 
-import java.util.HashSet;
-import java.util.Set;
+//import java.util.HashSet;
+//import java.util.Set;
 
 @Entity
 public class Feed {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer feedId;
 
     private String feedName;
-private String feedLink;
-private String title;
+    private String feedLink;
+    private String title;
 
-@ManyToMany(mappedBy = "feeds", fetch = FetchType.LAZY)
-    private Set<User> users = new HashSet<>();
+    //@ManyToMany(mappedBy = "feeds", fetch = FetchType.LAZY)
+//    private Set<User> users = new HashSet<>();
+    public Feed() {
 
-public Feed (){
+    }
 
-}
-public Feed(Integer feedId, String feedName, String feedLink, String title) {
+    public Feed(Integer feedId, String feedName, String feedLink, String title) {
         this.feedId = feedId;
         this.feedName = feedName;
         this.feedLink = feedLink;
@@ -44,9 +45,9 @@ public Feed(Integer feedId, String feedName, String feedLink, String title) {
         this.feedLink = feedLink;
     }
 
-   public Integer getFeedId() {
-           return feedId;
-}
+    public Integer getFeedId() {
+        return feedId;
+    }
 
     public void setFeedId(Integer id) {
         this.feedId = id;
@@ -60,19 +61,20 @@ public Feed(Integer feedId, String feedName, String feedLink, String title) {
         this.title = title;
     }
 
-    public Set<User> getUsers() {
-
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
+}
 
    // @ManyToMany(mappedBy = "likedfeeds", fetch = FetchType.LAZY )
     //    private Set<User> likedByUser = new HashSet<>();
 
-}
+
+//public Set<User> getUsers() {
+//
+//        return users;
+//    }
+//
+//    public void setUsers(Set<User> users) {
+//        this.users = users;
+//    }
 
 //@Entity
 //public class Feed {

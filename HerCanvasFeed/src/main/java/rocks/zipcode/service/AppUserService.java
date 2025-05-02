@@ -2,34 +2,34 @@ package rocks.zipcode.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
-import rocks.zipcode.accessingdatamysql.User;
-import rocks.zipcode.accessingdatamysql.UserRepository;
+import rocks.zipcode.accessingdatamysql.AppUser;
+import rocks.zipcode.accessingdatamysql.AppUserRepository;
 
 import java.util.List;
 
 @Service
-public class UserService {
+public class AppUserService {
 
     @Autowired
-        private UserRepository repository;
+        private AppUserRepository repository;
 @Autowired
-    public UserService(UserRepository repository){
+    public AppUserService(AppUserRepository repository){
     this.repository = repository;
 }
-public Iterable<User> index() {
+public Iterable<AppUser> index() {
     return repository.findAll();
 }
-    public User shhow (int userId) {
+    public AppUser show (int userId) {
     return repository.findById(userId).get();
     }
-        public User create(User user) {
+        public AppUser create(AppUser user) {
     return repository.save(user);
         }
-    public User update(int userId, User newUserData) {
-    User originalUser = repository.findById(userId).get();
-    originalUser.setUserName(newUserData.getUserName());
-        originalUser.setUserId(newUserData.getUserId());
-        originalUser.setUserEmail(newUserData.getUserName());
+    public AppUser update(int userId, AppUser newUserData) {
+        AppUser originalUser = repository.findById(userId).get();
+    originalUser.setAppUserName(newUserData.getAppUserName());
+        originalUser.setAppUserId(newUserData.getAppUserId());
+        originalUser.setAppUserEmail(newUserData.getAppUserName());
         return repository.save(originalUser);
     }
     public Boolean delete(int userId){

@@ -7,50 +7,50 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-//@Table(name = "`User`")
-public class User {
+@Table(name = "`appuser`")
+public class AppUser {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int userId;
-    private String userName;
-    private String userEmail;
+    private int appUserId;
+    private String appUserName;
+    private String appUserEmail;
     //private String password;
 
-    public User() {
+    public AppUser() {
 
     }
-    public User(String userName) {
-        this.userName = userName;
+    public AppUser(String userName) {
+        this.appUserName = userName;
     }
-    public User (Integer userId, String userName, String userEmail ) {
-        this.userName = userName;
-        this.userEmail = userEmail;
-        this.userId = userId;
+    public AppUser (Integer userId, String appUserName, String userEmail ) {
+        this.appUserName = appUserName;
+        this.appUserEmail = userEmail;
+        this.appUserId = appUserId;
     }
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer id) {
-        this.userId = id;
+    public Integer getAppUserId() {
+        return appUserId;
     }
 
-    public String getUserName() {
-        return userName;
+    public void setAppUserId(Integer id) {
+        this.appUserId = id;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public String getAppUserName() {
+        return appUserName;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public void setAppUserName(String appUserName) {
+        this.appUserName = appUserName;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public String getAppUserEmail() {
+        return appUserEmail;
+    }
+
+    public void setAppUserEmail(String userEmail) {
+        this.appUserEmail = appUserEmail;
     }
 
 //@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
