@@ -7,12 +7,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "`appuser`")
+@Table(name = "`app_user`")
 public class AppUser {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int appUserId;
     private String appUserName;
     private String appUserEmail;
@@ -24,9 +24,9 @@ public class AppUser {
     public AppUser(String userName) {
         this.appUserName = userName;
     }
-    public AppUser (Integer userId, String appUserName, String userEmail ) {
+    public AppUser (Integer appUserId, String appUserName, String appUserEmail ) {
         this.appUserName = appUserName;
-        this.appUserEmail = userEmail;
+        this.appUserEmail = appUserEmail;
         this.appUserId = appUserId;
     }
     public Integer getAppUserId() {
@@ -49,7 +49,7 @@ public class AppUser {
         return appUserEmail;
     }
 
-    public void setAppUserEmail(String userEmail) {
+    public void setAppUserEmail(String appUserEmail) {
         this.appUserEmail = appUserEmail;
     }
 
