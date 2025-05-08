@@ -19,21 +19,21 @@ public class AppUserService {
 public Iterable<AppUser> index() {
     return repository.findAll();
 }
-    public AppUser show (int userId) {
-    return repository.findById(userId).get();
+    public AppUser show (int appUserId) {
+    return repository.findById(appUserId).get();
     }
-        public AppUser create(AppUser user) {
-    return repository.save(user);
+        public AppUser create(AppUser appUser) {
+    return repository.save(appUser);
         }
-    public AppUser update(int userId, AppUser newUserData) {
-        AppUser originalUser = repository.findById(userId).get();
-    originalUser.setAppUserName(newUserData.getAppUserName());
-        originalUser.setAppUserId(newUserData.getAppUserId());
-        originalUser.setAppUserEmail(newUserData.getAppUserName());
-        return repository.save(originalUser);
+    public AppUser update(int appUserId, AppUser newAppUserData) {
+        AppUser originalAppUser = repository.findById(appUserId).get();
+        originalAppUser.setAppUserName(newAppUserData.getAppUserName());
+        originalAppUser.setAppUserId(newAppUserData.getAppUserId());
+        originalAppUser.setAppUserEmail(newAppUserData.getAppUserName());
+        return repository.save(originalAppUser);
     }
-    public Boolean delete(int userId){
-    repository.deleteById(userId);
+    public Boolean delete(int appUserId){
+    repository.deleteById(appUserId);
     return true;
     }
     }
