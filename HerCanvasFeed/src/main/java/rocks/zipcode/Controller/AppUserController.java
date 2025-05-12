@@ -34,7 +34,7 @@ public class AppUserController {
         return new ResponseEntity<>(appUserRepository.save(p), HttpStatus.CREATED);
     }
     @GetMapping(value = "/appuser/{ID}")
-    ResponseEntity<Optional<AppUser>> getUser (@PathVariable int appUserId) {
+    ResponseEntity<Optional<AppUser>> getAppUser (@PathVariable int appUserId) {
         return new ResponseEntity<>(appUserRepository.findById(appUserId), HttpStatus.OK);
     }
 
@@ -44,12 +44,12 @@ public class AppUserController {
     }
 
     @PutMapping(value = "/appuser/{id}")
-    ResponseEntity<AppUser> updateUser (@PathVariable("id") @RequestBody AppUser p){
+    ResponseEntity<AppUser> updateAppUser (@PathVariable("id") @RequestBody AppUser p){
         return new ResponseEntity<>(appUserRepository.save(p), HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping(value = "/appuser/{ID}")
-    void deleteUser(@PathVariable ("id") int appUserId) {
+    void deleteAppUser(@PathVariable ("id") int appUserId) {
         appUserRepository.deleteById(appUserId);
     }
 

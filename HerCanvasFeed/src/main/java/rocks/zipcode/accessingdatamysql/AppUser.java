@@ -21,8 +21,8 @@ public class AppUser {
     public AppUser() {
 
     }
-    public AppUser(String userName) {
-        this.appUserName = userName;
+    public AppUser(String appUserName) {
+        this.appUserName = appUserName;
     }
     public AppUser (Integer appUserId, String appUserName, String appUserEmail ) {
         this.appUserName = appUserName;

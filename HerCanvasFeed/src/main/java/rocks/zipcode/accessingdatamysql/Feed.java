@@ -15,6 +15,7 @@ public class Feed {
     private String feedName;
     private String feedLink;
     private String title;
+    private String description;
 
     //@ManyToMany(mappedBy = "feeds", fetch = FetchType.LAZY)
 //    private Set<User> users = new HashSet<>();
@@ -22,11 +23,12 @@ public class Feed {
 
     }
 
-    public Feed(Integer feedId, String feedName, String feedLink, String title) {
+    public Feed(Integer feedId, String feedName, String feedLink, String title, String description) {
         this.feedId = feedId;
         this.feedName = feedName;
         this.feedLink = feedLink;
         this.title = title;
+        this.description = description;
     }
 
     public String getFeedName() {
@@ -60,6 +62,16 @@ public class Feed {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
 
 }
 

@@ -1,4 +1,4 @@
-package rocks.zipcode;
+package rocks.zipcode.restapi;
 
 
 import org.springframework.context.annotation.Bean;
