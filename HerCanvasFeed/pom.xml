@@ -47,7 +47,15 @@
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-rest-hal-explorer</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>com.rometools</groupId>
+			<artifactId>rome</artifactId>
+			<version>1.18.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -96,13 +104,24 @@
 				</executions>
 				<dependencies>
 					<dependency>
+						<groupId>com.fasterxml.jackson.core</groupId>
+						<artifactId>jackson-databind</artifactId>
+						<version>2.15.2</version> <!-- Add this or another appropriate version -->
+					</dependency>
+					<dependency>
 						<groupId>org.springframework.restdocs</groupId>
 						<artifactId>spring-restdocs-asciidoctor</artifactId>
 						<version>${spring-restdocs.version}</version>
 					</dependency>
 					<dependency>
+						<groupId>org.springdoc</groupId>
+						<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+						<version>2.5.0</version> <!-- check for latest version -->
+					</dependency>
+					<dependency>
 						<groupId>com.fasterxml.jackson.core</groupId>
 						<artifactId>jackson-databind</artifactId>
+						<version>2.15.2</version>
 					</dependency>
 				</dependencies>
 			</plugin>

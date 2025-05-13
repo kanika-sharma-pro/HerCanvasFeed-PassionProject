@@ -14,7 +14,7 @@
             <thead>
             <tr>
     <th><img src="../static/images/HER%20CANVAS.png" style="width:59px;height:59px; ">   <span style="display:inline-block; width: 100px;"></span></th>
-    <th>Home <span style="display:inline-block; width: 20px;"></span></th>
+    <th>News <span style="display:inline-block; width: 20px;"></span></th>
     <th>Health <span style="display:inline-block; width: 20px;"></span></th>
     <th>Career <span style="display:inline-block; width: 20px;"></span> </th>
     <th>Motherhood <span style="display:inline-block; width: 20px;"></span></th>
@@ -29,8 +29,6 @@
             </table>
     </div>
 </header>
-
-
 
             <style>
               {  .mySlides {display:none;}
@@ -95,10 +93,11 @@
             </td>
         </tr>
 <div th:unless="${users != null and !users.isEmpty()}">
-    <p>Feeds</p>
+
 </div>
 
-<h4>About Us: To curate and connect women to inspiring stories, ideas, and communities that empower every aspect of their lives.</h4>
+<h4>About Us: To curate and connect women to inspiring stories, ideas,
+    and communities that empower every aspect of their lives.</h4>
 <form th:action="@{/users/createUser}" method="post" class="user-form">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required />
