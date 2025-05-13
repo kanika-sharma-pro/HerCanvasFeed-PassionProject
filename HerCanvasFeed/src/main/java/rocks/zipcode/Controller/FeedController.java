@@ -1,5 +1,6 @@
 package rocks.zipcode.Controller;
 
+import com.rometools.rome.feed.synd.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -34,7 +35,7 @@ public class FeedController {
         return new ResponseEntity<>(feedRepository.save(p), HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/feeds/{ID}")
+    @GetMapping(value = "/feeds/{id}")
     ResponseEntity<Optional<Feed>> getFeed (@PathVariable int feedId) {
         return new ResponseEntity<>(feedRepository.findById(feedId), HttpStatus.OK);
     }
@@ -49,7 +50,7 @@ public class FeedController {
         return new ResponseEntity<>(feedRepository.save(p), HttpStatus.ACCEPTED);
     }
 
-    @DeleteMapping(value = "/feeds/{ID}")
+    @DeleteMapping(value = "/feeds/{id}")
     void deleteFeed(@PathVariable ("id") int feedId) {
         feedRepository.deleteById(feedId);
     }
@@ -57,7 +58,7 @@ public class FeedController {
     @GetMapping(value = "/xml", produces = MediaType.APPLICATION_XML_VALUE)
     public List<Feed> getArticlesAsXml() {
         return List.of(
-                new Feed("Java News", "Latest in Spring Boot & OpenAPI"),
+                new Feed( null, "Java News", "http://example.com", "Latest in Spring Boot & OpenAPI", "It works"),
         new Feed("Tech Tips", "RSS and XML with REST APIs")
         );
     }
