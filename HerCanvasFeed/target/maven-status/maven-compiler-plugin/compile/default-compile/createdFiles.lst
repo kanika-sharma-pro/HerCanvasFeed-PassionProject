@@ -1,10 +1,5 @@
-rocks/zipcode/Apis/health/HealthApiController.class
-rocks/zipcode/restapi/restApiBean.class
 rocks/zipcode/accessingdatamysql/AppUser.class
 rocks/zipcode/accessingdatamysql/AppUserRepository.class
-rocks/zipcode/Controller/RssFeedController.class
-rocks/zipcode/Controller/test.class
-rocks/zipcode/Apis/health/HealthapiService.class
 rocks/zipcode/accessingdatamysql/FeedRepository.class
 rocks/zipcode/service/AppUserService.class
 rocks/zipcode/Controller/FeedController.class

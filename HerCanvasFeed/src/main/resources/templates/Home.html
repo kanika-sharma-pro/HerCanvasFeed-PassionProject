@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <h1>Her Canvas Feed</h1>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #fff0f5;
+            color: #334d2b;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 30px;
+            background-color: #fff;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff0f5;
+    color: #334d2b;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #334d2b;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.auth-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.auth-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.auth-buttons button {
+    flex: 1;
+    padding: 10px;
+    background-color: #334d2b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.auth-buttons button:hover {
+    background-color: #2a3f21;
+}
+        .nav-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #334d2b;
+            font-weight: bold;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input {
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-bar button {
+            background-color: #334d2b;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            margin-left: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .info-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .info-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .info-card h3 {
+            margin: 10px 0 5px;
+            color: #334d2b;
+        }
+
+        .info-card p {
+            color: #334d2b;
+        }
+
+        .main-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background-color: #fff;
+        }
+
+        .footer-left {
+            max-width: 50%;
+        }
+
+        .footer-left .footer-logo {
+            height: 50px;
+        }
+
+        .footer-right a {
+            margin: 0 10px;
+            color: #334d2b;
+            font-size: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<!-- Sign In / Sign Up Popup Modal -->
+<div id="authModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Welcome to Her Canvas Feed</h2>
+        <form class="auth-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required placeholder="Enter your email">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required placeholder="Enter your password">
+
+            <div class="auth-buttons">
+                <button type="submit">Sign In</button>
+                <button type="button" onclick="alert('Redirecting to Sign Up...')">Sign Up</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Header Section -->
+<header class="main-header">
+    <div class="logo">
+        <img src="/static/images/HER CANVAS.png" alt="Her Canvas Logo" />
+    </div>
+    <nav class="nav-links">
+        <a href="#">News</a>
+        <a href="#">Health</a>
+        <a href="#">Career</a>
+        <a href="#">Motherhood</a>
+    </nav>
+    <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button><i class="fas fa-search"></i></button>
+    </div>
+</header>
+
+<!-- Main Content Section -->
+<main>
+    <section class="grid-container">
+        <div class="info-card">
+            <img th:src="@{/images/img1.jpg}" alt="">
+            <h3>What’s Next for Women’s Health in 2025? 5 Trends That Are Driving The Sector</h3>
+            <p>Women’s health is finally getting the treatment it deserves. Historically overlooked, downplayed, and neglected, investors have spotted the largely untapped opportunity the sector presents. Venture capital investment in the women’s health sector has surged by 314% over the past five years, and despite the recent slowdown in startup funding, mid-year data shows the sector is on track for another record-breaking year.
+            </p>
+        </div>
+        <div class="info-card">
+            <img th:src="@{/images/img2.jpg}" alt="">
+            <h3>What Will The Next 20 Years In Health And Wellness Look Like?</h3>
+            <p>he year is 2045. Perhaps that makes you middle-aged, but people aren’t calling it that anymore. Maybe we’re measuring age internally—assessing your biological age based on the vitality of your cells, for example, not the number of candles on your birthday cake. Or we’re gauging age by healthspan (years feeling fully alive), not lifespan (years being alive).
+                In a particularly gracious version of this future world, aging is supported by health-care professionals who take, and treat, women’s pain seriously.</p>
+        </div>
+        <div class="info-card">
+            <img th:src="@{/images/img3.jpg}" alt="">
+            <h3>Tips for New Moms: The First Few Weeks</h3>
+            <p>Bringing a new baby home is an exciting time. But it can also feel overwhelming, stressful, and exhausting. “You’re healing from childbirth while getting to know your newborn,” says Hilary Baxendale, a childbirth educator and doula in Hastings-on-Hudson, NY.
+
+                To help you get through those first few weeks, parents share their hard-earned lessons and favorite tips.</p>
+        </div>
+        <div class="info-card">
+            <img th:src="@{/images/img4.jpg}" alt="">
+            <h3>Title 4</h3>
+            <p>Description for card 4.</p>
+        </div>
+        <div class="info-card">
+            <img th:src="@{/images/img5.jpg}" alt="">
+            <h3>Title 5</h3>
+            <p>Description for card 5.</p>
+        </div>
+        <div class="info-card">
+            <img th:src="@{/images/img6.jpg}" alt="">
+            <h3>Title 6</h3>
+            <p>Description for card 6.</p>
+        </div>
+        <div class="info-card">
+            <img th:src="@{/images/img7.jpg}" alt="">
+            <h3>Title 7</h3>
+            <p>Description for card 7.</p>
+        </div>
+        <div class="info-card">
+            <img th:src="@{/images/img8.jpg}" alt="">
+            <h3>Title 8</h3>
+            <p>Description for card 8.</p>
+        </div>
+        <div class="info-card">
+            <img th:src="@{/images/img9.jpg}" alt="">
+            <h3>Title 9</h3>
+            <p>Description for card 9.</p>
+        </div>
+    </section>
+</main>
+
+<!-- Footer Section -->
+<footer class="main-footer">
+    <div class="footer-left">
+        <p>Her Canvas Feed connects women with ideas and inspiration to support every part of their journey.</p>
+    </div>
+    <div class="footer-right">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-pinterest"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+</footer>
+<script>
+    // Show modal on page load
+    window.onload = function () {
+        document.getElementById("authModal").style.display = "block";
+    };
+
+    // Close modal when clicking X
+    document.querySelector(".close-btn").onclick = function () {
+        document.getElementById("authModal").style.display = "none";
+    };
+
+    // Optional: Close when clicking outside the modal
+    window.onclick = function (event) {
+        const modal = document.getElementById("authModal");
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+</script>
+</body>
+</html>

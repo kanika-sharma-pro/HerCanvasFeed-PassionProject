@@ -2,6 +2,8 @@ package rocks.zipcode.accessingdatamysql;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 
 @Entity
 public class Feed {
@@ -16,7 +18,7 @@ public class Feed {
     private String description;
 
     //@ManyToMany(mappedBy = "feeds", fetch = FetchType.LAZY)
-//    private Set<User> users = new HashSet<>();
+// private Set<User> users = new HashSet<>();
     public Feed() {
 
     }
@@ -73,5 +75,11 @@ public class Feed {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setAuthor(String author) {
+    }
+
+    public void setPublishedDate(LocalDateTime localDateTime) {
     }
 }
